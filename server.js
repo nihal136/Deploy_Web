@@ -1,10 +1,11 @@
 const express = require("express");
 
 const app = express()
+const h=app.use(express.static("frontend"))//tells to serve all your static files in frontend
 
-app.get("/",function(req,res){
-    res.send("Hello World")
-})
+app.get("/html",function(req,res){
+    res.sendFile(__dirname+"/frontend/index.html");//"dirname" gives location of server file
+});
 
 app.listen(3000,function(){
     console.log("server running on http://localhost:3000")
